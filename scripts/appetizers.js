@@ -1,5 +1,5 @@
 (function() {
-    //Default RecipeBook if no data is found in local storage
+    //Default if no recipes on hand
     var RecipeBook = [
       {
         name: "Recipe 1",
@@ -15,7 +15,7 @@
       }
     ];
   
-    //get's called each time you either add, remove or edit+save a recipe from the list
+    // Call function to add, remove or edit a recipe
     function updateLocalStorage() {
       var RecipeBook = [];
       var list = document.getElementsByClassName("recipe");
@@ -33,19 +33,19 @@
       return JSON.stringify(RecipeBook);
     }
   
-    //event handler to edit any recipe
+    // Event Handler to edit recipe
     function editRecipe(event) {
-      //get the recipe element as an entry point for manipulation
+      // recipe element
       var elt = event.target.parentNode.parentNode.parentNode;
       var recipe = {};
   
-      //hide the recpe panel and show the edit panel
+      // hide the recipe panel and show the edit panel
       var panel = elt.getElementsByClassName("panel")[0];
       panel.classList.remove("show");
       var editor = elt.getElementsByClassName("edit")[0];
       editor.classList.add("show");
   
-      //fill the recipe object with the information from the recipe panel
+      // fill the recipe object with the information
       recipe.name = elt.getElementsByClassName("accordion")[0].innerHTML;
       recipe.ingredients = [];
       var list = elt.getElementsByTagName("li");
@@ -55,19 +55,19 @@
         }
       }
   
-      //and let the input fields represent the values from the recipe object
+      // input fields represent the values from the recipe object
       var target = elt.getElementsByClassName("edit")[0];
       target.children[0].value = recipe.name;
       target.children[1].value = recipe.ingredients.join(",");
     }
   
-    //save any edit's with this event handler
+    // save any edit's 
     function saveEdit(event) {
-      //get the recipe Element as an entry point for manipulation
+      // recipe element
       var elt = event.target.parentNode.parentNode;
       var recipe = {};
   
-      //get the updated values from the input fileds and save them in the recipe object
+      // updated values from the input fileds and save them in the recipe object
       recipe.name = elt.getElementsByClassName("edit")[0].children[0].value.trim();
       recipe.ingredients = elt.getElementsByClassName("edit")[0].children[1].value.split(",").filter(n => {
         if(n === "") {
@@ -76,16 +76,16 @@
         return n.trim();
       });
   
-      //update the title
+      // update the title
       elt.getElementsByClassName("accordion")[0].innerHTML = recipe.name;
   
-      //delete the old ingredient list
+      // delete the old ingredient list
       var newIngreds = elt.getElementsByTagName("ul")[0];
       while(newIngreds.firstChild) { 
         newIngreds.removeChild(newIngreds.firstChild); 
       }
   
-      //and create a new one with the new ingredients from the array
+      // create a new one with the new ingredients from the array
       for(let i = 0; i < recipe.ingredients.length; i++) {
         var item = document.createTextNode(recipe.ingredients[i]);
         var listItem = document.createElement("li");
@@ -93,7 +93,7 @@
         newIngreds.appendChild(listItem);
       }
   
-      //hide the edit panel and show the recipe panel again
+      // hide the edit panel and show the recipe panel again
       var panel = elt.getElementsByClassName("panel")[0];
       panel.classList.add("show");
       var editor = elt.getElementsByClassName("edit")[0];
@@ -102,16 +102,16 @@
       localStorage["Sakura_RecipeBook"] = updateLocalStorage();
     }
   
-    //delete a recipe from the list
+    // delete a recipe from the list
     function deleteRecipe(event) {
-      //get the recipe element as an entry point for mainpulation
+      //recipe element
       var elt = event.target.parentNode.parentNode.parentNode;
       elt.parentNode.removeChild(elt);
   
       localStorage["Sakura_RecipeBook"] = updateLocalStorage();
     }
   
-    //create a new empty/from localStorage recipe and add it to the list 
+    // create a new empty from localStorage recipe and add it to the list 
     function createRecipe(event, recipeindex) {
       var elt = document.getElementsByClassName("recipebox")[0];
   
@@ -129,18 +129,18 @@
       var panel = document.createElement("div");
       panel.classList.add("panel");
   
-      //the title
+      // the title
       var title = document.createElement("h4");
       title.classList.add("center");
       title.innerHTML = "Ingredients";
       panel.appendChild(title);
   
-      //the separator line
+      // separator line
       var line = document.createElement("div");
       line.classList.add("line");
       panel.appendChild(line);
   
-      //the unordered list
+      // unordered list
       var ul = document.createElement("ul");
       panel.appendChild(ul);
   
@@ -152,7 +152,7 @@
         }
       }
   
-      //the btn-group with it's buttons
+      // btn-group with it's buttons
       var btn_group = document.createElement("div");
       btn_group.classList.add("btn-group");
   
@@ -184,12 +184,12 @@
       save.onclick = saveEdit;
       editPanel.appendChild(save);
   
-      //append all the children to newRecipe
+      // append all the children to newRecipe
       newRecipe.appendChild(accordion);
       newRecipe.appendChild(panel);
       newRecipe.appendChild(editPanel);
   
-      //and insert it into the recipebox
+      // insert into the recipebox
       var parent = document.getElementsByClassName("recipebox")[0];
       var target = event.target != null ? event.target : event;
       parent.insertBefore(newRecipe, target);
@@ -197,7 +197,7 @@
       localStorage["Sakura_RecipeBook"] = updateLocalStorage();
     }
   
-    //toggle the recipe panel with the ingredients
+    // toggle the recipe panel with the ingredients
     function toggleRecipe(e) {
       e.target.classList.toggle("active");
       e.target.nextElementSibling.classList.toggle("show");
@@ -209,7 +209,7 @@
       };
     }
   
-    //onpageload: parse the list of recipes form localStorage or from the default list
+    // onpageload: parse the list of recipes form localStorage or from the default list
     (function parseRecipes() {
       document.getElementById("add-rec").onclick = createRecipe;
       var insertHere = document.getElementById("add-rec");
