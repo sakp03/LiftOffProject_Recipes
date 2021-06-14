@@ -1,0 +1,224 @@
+/* Master Styles */
+body {
+    font-family: "Lato", Georgia;
+    margin: 0px;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+/* Navigation Bar Styles */
+.nav-bar {
+    display: flex;
+    justify-content: space-between;
+    padding: 38px;
+}
+
+.left-side {
+    display: flex;
+}
+
+.nav-bar > .left-side > div {
+    margin-right: 30px;
+    font-size: 0.9em;
+    text-transform: uppercase;
+}
+
+.nav-link-bar {
+    height: 20px;
+    border-bottom: 1px solid transparent;
+    transition: border-bottom 0.5s;
+}
+
+.nav-link-bar a {
+    color: #8a8a8a;
+    text-decoration: none;
+    transition: color 0.5s;
+}
+
+.nav-link-bar:hover {
+    border-bottom: 1px solid black;
+}
+
+.nav-link-bar a:hover {
+    color: black;
+}
+
+/*  Portfolio Styles */
+
+.portfolio-items {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.portfolio-item-wrapper {
+    position: relative;
+}
+
+.portfolio-img-background {
+    height: 300px;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/*  Logo Styles */
+
+.img-text-wrapper {
+    position: absolute;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    text-align: center;
+    padding-left: 400px;
+    padding-right: 400px;
+}
+
+.logo-wrapper img {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.img-text-wrapper .subtitle {
+    transition: 1s;
+    font-weight: 600;
+    color: transparent;
+}
+
+.img-text-wrapper:hover .subtitle {
+    font-weight: 600;
+    color: white;
+}
+
+.img-darken {
+    transition: 1s;
+    filter: brightness(10%);
+}
+
+/*  Appetizers  */
+.container {
+    text-align: center;
+}
+
+.recipebox {
+    position: relative;
+    width: 60%;
+    left: 20%;
+    padding: 15px;
+    box-sizing: border-box;
+    border: 2px solid #222;
+    border-radius: 5px;
+    background-color: #ddd;
+}
+
+.accordion {
+    font-weight: bold;
+    color: #8a8a8a;
+    background-color: rgb(26, 21, 21);
+    width: 100%;
+    border: 2px solid #333;
+    border-radius: 5px;
+    padding: 18px;
+    margin-bottom: 10px;
+}
+
+.accordion.active, .accordion:hover {
+    color: #333;
+    background-color: #8a8a8a;
+    cursor: pointer;
+}
+
+.panel {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: 0.4s ease-in-out;
+}
+
+.panel.show {
+    max-height: 500px;
+    opacity: 1;
+}
+
+.center {
+    text-align: center;
+}
+
+.line {
+    width: 100%;
+    border: 1px solid #000;
+    border-radius: 100%;
+}
+
+.btn-group {
+    margin: 0px 0px 10px 25px;
+}
+
+.btn-group button {
+    padding: 3px;
+    margin-right: 10px;
+}
+
+.btn-group button:first-child {
+    background-color: #ab0000;
+    color: #ddd;
+    border: 2px solid #ab0000;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.btn-group button:first-child:hover, .btn-group button:last-child:hover, .edit button:hover, #add-rec:hover {
+    color: #222;
+    cursor: pointer;
+}
+
+.btn-group button:last-child, .edit button, #add-rec {
+    background-color: #1f1f1f;
+    color: #ddd;
+    border: 2px solid #1f1f1f;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.edit {
+    width: 100%;
+    max-height: 0px;
+    opacity: 0;
+    overflow: hidden;
+}
+
+.edit * {
+    display: block;
+    position: relative;
+    left: 50%;
+    margin-left: -46%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.edit button {
+    padding: 3px;
+}
+
+.edit input, .edit textarea {
+    border: 1px solid #222;
+    border-radius: 3px;
+    width: 90%;
+    padding: 5px;
+}
+
+.edit.show {
+    opacity: 1;
+    max-height: 500px;
+}
+
+#add-rec {
+    margin-top: 5px;
+    padding: 8px;
+}

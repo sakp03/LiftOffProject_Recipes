@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="utf-8" />
-        <title>Page Title</title>
-        <link rel="stylesheet" href="styles.css">
+        <meta charset="UTF-8" />
+        <title>Portfolio Homepage</title>
+        <link rel="stylesheet" href="styles/styles.css">
     </head>
 
     <body>
@@ -11,11 +11,8 @@
 
             <div class="nav-bar">
                 <div class="left-side">
-                    <div class="nav-link-bar">
+                    <div class="nav-link-bar active-nav-link">
                         <a href="index.html">Home</a>
-                    </div>
-                    <div class="nav-link-bar">
-                        <a href="about.html">About</a>
                     </div>
                     <div class="nav-link-bar">
                         <a href="appetizers.html">Appetizers</a>
@@ -29,35 +26,60 @@
                 </div>
                 <div class="right-side">
                     <div class="brand">
-                        <div>LOTS OF RECIPES</div>
+                        <div>ALL ABOUT THE ASIAN RECIPES</div>
                     </div>
                 </div>
             </div>
 
             <div class="content">
                 <div class="portfolio-items">
-                    <div class="portfolio-item">
+
+                    <div class="portfolio-item-wrapper">
                         <div class="portfolio-img-background" style="background-image:url(images/roghib-nugraha-wvdknieezTE-unsplash.jpg)"></div>
-                        <div class="img-text">
-                            Appetizers
+              
+                        <div class="img-text-wrapper">
+                          <div class="logo-wrapper">
+                              <a href="appetizers.html">
+                                  <img src="images/logos/appetizers.png" alt="">
+                                </a>
+                          </div>
+                          <div class="subtitle">Appetizers are a great start to any meal. Join us for some recipes that will tantalize your tastebuds.</div>
                         </div>
                     </div>
-                    <div class="portfolio-item">
+
+                    <div class="portfolio-item-wrapper">
                         <div class="portfolio-img-background" style="background-image:url(images/julius-yls-67Zn0wziF6k-unsplash.jpg)"></div>
-                        <div class="img-text">
-                            Entrees
+              
+                        <div class="img-text-wrapper">
+                          <div class="logo-wrapper">
+                              <a href="entrees.html">
+                                  <img src="images/logos/entrees.png" alt="">
+                                </a>
+                          </div>
+                          <div class="subtitle">Entrees are the main event for anyone. Don't miss out and checkout these recipes.</div>
                         </div>
                     </div>
-                    <div class="portfolio-item">
+
+                    <div class="portfolio-item-wrapper">
                         <div class="portfolio-img-background" style="background-image:url(images/angele-kamp-57pQyh94xSo-unsplash.jpg)"></div>
-                        <div class="img-text">
-                            Desserts
+              
+                        <div class="img-text-wrapper">
+                          <div class="logo-wrapper">
+                              <a href="desserts.html">
+                                  <img src="images/logos/desserts.png" alt="">
+                                </a>
+                          </div>
+                          <div class="subtitle">Desserts are the best to end or start a meal. Take a gander at these marvelous recipes.</div>
                         </div>
                     </div>
+
                 </div>
             </div>
 
         </div>
 
+        <script src="scripts/index.js"></script>
+
     </body>
+    
 </html>
